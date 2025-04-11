@@ -1,0 +1,25 @@
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 4px 30px;
+  border: 1px solid red;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+}
+
+.main-container-item ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+
+}
+
+.main-container-item >ul >li{
+    padding:  0px 20px;
+}
+
+
