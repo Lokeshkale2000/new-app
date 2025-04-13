@@ -1,21 +1,49 @@
+import "./App.css";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Mainpage2 from "./components/Mainpage2";
+import Navbar from "./components/Navbar";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import RestaurantMenu from "./components/RestaurantMenu";
 
-import './App.css'
-import Mainpage from './components/Mainpage'
-import Mainpage2 from './components/Mainpage2'
-import Navbar from './components/Navbar'
-
-function App() {
-  
-  // config driven ui
-
+// Layout that includes Navbar and outlet for nested routes
+export function Layout() {
   return (
     <>
-      {Navbar()}
-      <Mainpage></Mainpage>
-      <Mainpage2></Mainpage2>
- 
+      <Navbar />
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default App
+// Define routes using Layout as the main wrapper
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />, // ✅ Use Layout here
+    children: [
+      {
+        path: "/home",
+        element: <Mainpage2 />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "restraurants/:resId",
+        element: <RestaurantMenu />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+// App returns the RouterProvider
+export default function App() {
+  return <RouterProvider router={appRouter} />;
+}

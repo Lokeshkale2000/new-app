@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Mainpage.css"
 import Card2 from "./Card2"; // Assuming Card2 is a valid component in your project
 
 const Mainpage2 = () => {
