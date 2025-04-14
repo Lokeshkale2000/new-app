@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Mainpage.css"
-import Card2 from "./Card2"; // Assuming Card2 is a valid component in your project
+import Card2 from "./Card2";
+import Mainpage from "./Mainpage.jsx"// Assuming Card2 is a valid component in your project
 
 const Mainpage2 = () => {
   const [restaurant, setRestaurant] = useState([]);
@@ -54,6 +55,7 @@ const Mainpage2 = () => {
 
   return (
     <div>
+      <div><Mainpage></Mainpage></div>
       <div className="mainpage">
         {restaurant.map((restaurant) => (
           <Card2 {...restaurant} key={restaurant.id} />
