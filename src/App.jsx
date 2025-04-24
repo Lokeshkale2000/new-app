@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Mainpage2 from "./components/Mainpage2";
 import Navbar from "./components/Navbar";
@@ -6,6 +7,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 
+
+
+const Grocercy =lazy(()=> import('./components/Grocercy'))
 // Layout that includes Navbar and outlet for nested routes
 export function Layout() {
   return (
@@ -23,7 +27,7 @@ const appRouter = createBrowserRouter([
     element: <Layout />, // ✅ Use Layout here
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Mainpage2 />,
       },
       {
@@ -41,6 +45,14 @@ const appRouter = createBrowserRouter([
     ],
     errorElement: <Error />,
   },
+  {
+    path: "/grocery",
+    element: (
+      <Suspense>
+        <Grocercy></Grocercy>
+      </Suspense>
+    )
+  }
 ]);
 
 // App returns the RouterProvider
