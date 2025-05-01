@@ -7,11 +7,10 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 
-
-
-const Grocercy =lazy(()=> import('./components/Grocercy'))
+const Grocercy = lazy(() => import("./components/Grocercy"));
 // Layout that includes Navbar and outlet for nested routes
 export function Layout() {
+
   return (
     <>
       <Navbar />
@@ -51,8 +50,8 @@ const appRouter = createBrowserRouter([
       <Suspense>
         <Grocercy></Grocercy>
       </Suspense>
-    )
-  }
+    ),
+  },
 ]);
 
 // App returns the RouterProvider

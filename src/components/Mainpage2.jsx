@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import "./Mainpage.css"
+import "./Mainpage.css";
 import Card2 from "./Card2";
-import Mainpage from "./Mainpage.jsx"// Assuming Card2 is a valid component in your project
+import Mainpage from "./Mainpage.jsx"; // Assuming Card2 is a valid component in your project
 
 const Mainpage2 = () => {
   const [restaurant, setRestaurant] = useState([]);
+  const user= {
+    name: "lokesh kale",
+    email:"lokeshkale2020@gmail.com"
+  }
 
   //useEffect hook
   // () => {}  this is callback function.it is called insided the useeffect hook and it will be called when useeffect what to
@@ -46,7 +50,8 @@ const Mainpage2 = () => {
           price: details.costForTwo || "N/A",
           cuisines: details.cuisines || [],
           deliveryTime: details.sla?.deliveryTime || "N/A",
-          link: details.cta?.link || "#", // Default link if missing
+          link: details.cta?.link || "#",
+          // Default link if missing
         };
       });
 
@@ -55,10 +60,12 @@ const Mainpage2 = () => {
 
   return (
     <div>
-      <div><Mainpage></Mainpage></div>
+      <div>
+        <Mainpage></Mainpage>
+      </div>
       <div className="mainpage">
         {restaurant.map((restaurant) => (
-          <Card2 {...restaurant} key={restaurant.id} />
+          <Card2 {...restaurant} key={restaurant.id} user={user} />
         ))}
       </div>
     </div>

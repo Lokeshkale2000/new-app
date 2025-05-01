@@ -9,6 +9,7 @@ const Card2 = ({
   cuisines,
   locality,
   deliveryTime,
+  user,
 }) => {
     return (
       <div className="mainpage">
@@ -32,6 +33,8 @@ const Card2 = ({
 
             {/* Cost for two string */}
             <p>{price}</p>
+            <h4> created by : {user.name}</h4>
+            <h6>Mail : {user.email}</h6>
           </div>
         </div>
       </div>
